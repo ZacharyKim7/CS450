@@ -75,6 +75,27 @@ def stream_ollama(prompt, model="cs450", **options):
     except Exception as e:
         yield f"Error: {e}"
 
+def analyze_image(image_path, prompt, model="gemma3", temperature=0.3):
+    """
+    Analyze an image with a text prompt.
+    
+    Args:
+        image_path: Path to image file
+        prompt: Question or instruction about the image
+        model: Vision model to use
+        temperature: Randomness (0.0-1.0)
+    """
+    response = ollama.chat(
+        model=model,
+        messages=[{
+            'role': 'user',
+            'content': prompt,
+            'images': [image_path]
+        }],
+        options={'temperature': temperature}
+    )
+    return response['message']['content']
+
 # Test the function
 if __name__ == "__main__":
     test_prompt = "Say 'Hello, World!' and nothing else."
