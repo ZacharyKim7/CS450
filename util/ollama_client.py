@@ -76,7 +76,7 @@ def stream_ollama(prompt, model="cs450", **options):
     except Exception as e:
         yield f"Error: {e}"
 
-def analyze_image(image_url, prompt, model="gemma3", temperature=0.3):
+def analyze_image(image_url, prompt, model="llava", temperature=0.3):
     """
     Analyze an image from a URL with a text prompt.
     
