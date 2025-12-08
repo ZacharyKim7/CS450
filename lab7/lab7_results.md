@@ -42,7 +42,9 @@ UniXcoder discrimination (similar - different): 0.7693
 Generic discrimination (similar - different):   0.3385
 ```
 
-    1. UniXcoder has a significantly higher discrimination score than the Generic model. This score reveals that the UniXcoder model is the much better code embedding model.
+    1. Look at the "discrimination" scores - what do they tell you?
+    
+        * UniXcoder has a significantly higher discrimination score than the Generic model. This score reveals that the UniXcoder model is the much better code embedding model.
 
 ### 2.3
 
@@ -62,9 +64,9 @@ Similarity Scores:
 0.1074 - completely_different
 ```
 
-    1. Yes, UniXcoder largely recognizes functionally similar code despite the slight structural code differences. Completely different logic yields a very low similarity, which is as expected; the low score for completely different code suggests that the model is actually detecting similarity.
+    1. Does UniXcoder recognize functionally similar code despite variable name changes and type hints?
 
-    2. Explicitly specifying types in the code is the most effective. However, excluding types still yields high results as the model recognizes the expected types in commonly used math operations.
+        * Yes, UniXcoder largely recognizes functionally similar code despite the slight structural code differences. Completely different logic yields a very low similarity, which is as expected; the low score for completely different code suggests that the model is actually detecting similarity.Explicitly specifying types in the code is the most effective. However, excluding types still yields high results as the model recognizes the expected types in commonly used math operations.
 
 ### 2.4
 
@@ -93,3 +95,14 @@ cosmetic_only        0.9186       0 operators (cosmetic: age → user_age)
     1. Do different phrasings of the same question retrieve the same functions?
 
         * Yes, all questions retrieve the same functions despite different wordings.
+
+
+### 4.2
+
+    1. Which query types work best with UniXcoder?
+
+        * Use case queries work the best with UniXcoder, with overall low distances mapping needs to functions. Incomplete/Vague queries are the worst with the highest distance. Technical terms do not work as well as use cases, and natural language is very split based on the input.
+
+    2. How does UniXcoder handle vague vs specific queries?
+
+        * Specific queries have noticably lower distances and thus better matching. Vague queries average around the 1700s, while describing specific use cases averages in the 1300s. 
