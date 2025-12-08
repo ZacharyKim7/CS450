@@ -1,6 +1,6 @@
 # Names: Zachary Kim, Andrew Flerchinger
 # Lab: lab7 (RAG for Code with UniXcoder)
-# Date: Today's date
+# Date: 8 December 2025
 
 ## Reflections
 
